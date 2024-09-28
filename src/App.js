@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar"; // Add this import
+import Toolbar from "@mui/material/Toolbar";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import Home from "./pages/Home";
 import LinkedListIntro from "./pages/LinkedListIntro";
 import MusicPlaylist from "./pages/MusicPlaylist";
 import OtherExamples from "./pages/OtherExamples";
+import RealWorldImplementation from "./pages/RealWorldImplementation";
 
 const theme = createTheme({
   palette: {
@@ -58,13 +59,17 @@ function App() {
               }),
             }}
           >
-            <Toolbar /> {/* This line is now properly defined */}
+            <Toolbar />
             <Box sx={{ p: 3 }}>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/intro" element={<LinkedListIntro />} />
                 <Route path="/music-playlist" element={<MusicPlaylist />} />
                 <Route path="/other-examples" element={<OtherExamples />} />
+                <Route
+                  path="/real-world"
+                  element={<RealWorldImplementation />}
+                />
               </Routes>
             </Box>
           </Box>

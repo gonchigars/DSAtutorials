@@ -11,6 +11,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import SchoolIcon from "@mui/icons-material/School";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import ExploreIcon from "@mui/icons-material/Explore";
+import CodeIcon from "@mui/icons-material/Code";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import LinkIcon from "@mui/icons-material/Link";
@@ -43,6 +44,11 @@ const Sidebar = ({ open, toggleDrawer }) => {
           text: "Other Examples",
           icon: <ExploreIcon />,
           path: "/other-examples",
+        },
+        {
+          text: "Real-World Implementation",
+          icon: <CodeIcon />,
+          path: "/real-world",
         },
       ],
     },
@@ -79,7 +85,7 @@ const Sidebar = ({ open, toggleDrawer }) => {
         {menuItems.map((item) =>
           item.subItems ? (
             <React.Fragment key={item.text}>
-              <ListItem button onClick={handleLinkedListClick}>
+              <ListItem onClick={handleLinkedListClick}>
                 <ListItemIcon>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} />
                 {linkedListOpen ? <ExpandLess /> : <ExpandMore />}
@@ -88,7 +94,6 @@ const Sidebar = ({ open, toggleDrawer }) => {
                 <List component="div" disablePadding>
                   {item.subItems.map((subItem) => (
                     <ListItem
-                      button
                       key={subItem.text}
                       component={Link}
                       to={subItem.path}
@@ -104,7 +109,6 @@ const Sidebar = ({ open, toggleDrawer }) => {
             </React.Fragment>
           ) : (
             <ListItem
-              button
               key={item.text}
               component={Link}
               to={item.path}
